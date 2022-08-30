@@ -24,6 +24,7 @@ public class ATM {
 	}
 	
 	public double checkBalance (int accountID) {
+		if (!isAccount(accountID)) return 0.0;
 		return allAccounts.get(accountID).getBalance();
 	} 
 	
@@ -31,7 +32,15 @@ public class ATM {
 		return allAccounts.containsKey(id);
 	}
 	
+	public boolean depositMoney (int id, double amount) {
+		if (!isAccount(id)) return false;
+		account acc = allAccounts.get(id);
+		acc.setBalance(acc.getBalance()+amount);
+		return true;
+	}
+	
 	public boolean withdrawMoney (int accountID, double amount) {
+		if (!isAccount(accountID)) return false;
 		account acc = allAccounts.get(accountID);
 		if (acc.getBalance()<amount) return false;
 		else {
