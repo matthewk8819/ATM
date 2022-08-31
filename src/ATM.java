@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 
@@ -34,7 +36,11 @@ public class ATM {
 	
 	public double checkBalance (int accountID) {
 		if (!isAccount(accountID)) return 0.0;
-		return allAccounts.get(accountID).getBalance();
+		//return allAccounts.get(accountID).getBalance();
+		double d = allAccounts.get(accountID).getBalance();
+		BigDecimal d1 = new BigDecimal(d);
+		BigDecimal newd = d1.setScale(2,RoundingMode.DOWN);
+		return newd.doubleValue();
 	} 
 	
 	private boolean isAccount (int id) {
@@ -51,7 +57,6 @@ public class ATM {
 	public boolean withdrawMoney (int accountID, double amount) {
 		@SuppressWarnings("removal")
 		Double d = new Double(20.0101001);
-		
 		
 		if (!isAccount(accountID)) return false;
 		account acc = allAccounts.get(accountID);

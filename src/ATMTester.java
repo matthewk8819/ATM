@@ -1,7 +1,10 @@
 import java.util.*;
+import java.text.*;
 import java.io.*;
+import java.math.*;
 
 public class ATMTester {
+@SuppressWarnings("removal")
 public static void main(String[] args) {
 ATM chase = new ATM();
 // Open accounts
@@ -40,6 +43,24 @@ System.out.println(chase.checkBalance(21504)); // Should be 0.0
 chase.withdrawMoney(00002, 2020.2);
 System.out.println(chase.checkBalance(00002)); // Should be 634.1 and 
 //not a fraction more!
+double d1 = 2500.0;
+double d2 = 2020.2;
+double d3 = 154.30;
+System.out.println(d1 + d3 - d2);
+double floorD = Math.floor((d1+d3-d2) *100) /100;
+System.out.println(floorD);
+System.out.println(Math.floor((d1+d3-d2) * 100) / 100.00);
+
+//test for two decimal places: 
+System.out.println(Math.floor((d1+d3)*100)/100);
+BigDecimal d = new BigDecimal(Math.floor((d1+d3)*100)/100);
+MathContext m = new MathContext(6);
+System.out.println(d.setScale(2,RoundingMode.DOWN));
+BigDecimal newd = d.setScale(2,RoundingMode.DOWN);
+Double d11 = new Double(d1+d3);
+System.out.println(Double.sum(d3, d1));
+DecimalFormat df = new DecimalFormat("0.00");
+
 }
 }
 /*
