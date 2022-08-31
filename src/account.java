@@ -6,6 +6,7 @@ public class account {
 	
 	public account(int id) {
 		this.id = id;
+		balance = 0;
 	}
 	
 	public account(int id, double balance) {
