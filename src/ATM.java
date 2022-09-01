@@ -40,6 +40,8 @@ public class ATM {
 		double d = allAccounts.get(accountID).getBalance();
 		BigDecimal d1 = new BigDecimal(d);
 		BigDecimal newd = d1.setScale(2,RoundingMode.DOWN);
+		newd = newd.setScale(2);
+		//System.out.println(newd);//does the .30 business
 		return newd.doubleValue();
 	} 
 	

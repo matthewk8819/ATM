@@ -43,6 +43,7 @@ System.out.println(chase.checkBalance(21504)); // Should be 0.0
 chase.withdrawMoney(00002, 2020.2);
 System.out.println(chase.checkBalance(00002)); // Should be 634.1 and 
 //not a fraction more!
+/*testing for decimal 
 double d1 = 2500.0;
 double d2 = 2020.2;
 double d3 = 154.30;
@@ -60,7 +61,7 @@ BigDecimal newd = d.setScale(2,RoundingMode.DOWN);
 Double d11 = new Double(d1+d3);
 System.out.println(Double.sum(d3, d1));
 DecimalFormat df = new DecimalFormat("0.00");
-
+*/
 }
 }
 /*
